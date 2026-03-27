@@ -9,16 +9,20 @@
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
 	<style>
 		:root {
-			--bg: #f4f7f1;
-			--surface: #ffffff;
-			--ink: #122127;
-			--muted: #48606a;
-			--primary: #0d7a73;
-			--accent: #d9681f;
-			--ring: rgba(13, 122, 115, 0.2);
-			--shadow: 0 20px 45px rgba(18, 33, 39, 0.12);
-			--radius: 20px;
-			--max: 1080px;
+			--bg: #08111b;
+			--surface: #101b28;
+			--ink: #e7eef6;
+			--muted: #a8b6c6;
+			--primary: #9fc5ef;
+			--primary-soft: #1b2d41;
+			--accent: #b8893d;
+			--accent-soft: #362a1a;
+			--border: #223447;
+			--shadow-sm: 0 12px 24px rgba(0, 0, 0, 0.33);
+			--shadow-lg: 0 24px 54px rgba(0, 0, 0, 0.44);
+			--radius-lg: 18px;
+			--radius-md: 12px;
+			--max: 980px;
 		}
 
 		* {
@@ -29,12 +33,16 @@
 		body {
 			margin: 0;
 			padding: 0;
-			background: radial-gradient(circle at 90% -10%, #d4efe8 0%, var(--bg) 48%), var(--bg);
-			color: var(--ink);
 			font-family: "Space Grotesk", "Segoe UI", sans-serif;
 			line-height: 1.55;
-			scroll-behavior: smooth;
+			color: var(--ink);
+			background:
+				radial-gradient(circle at 10% -10%, rgba(184, 137, 61, 0.2) 0%, rgba(8, 17, 27, 0) 35%),
+				radial-gradient(circle at 100% 0, rgba(39, 81, 123, 0.32) 0%, rgba(8, 17, 27, 0) 34%),
+				linear-gradient(155deg, #0d1722 0%, var(--bg) 46%, #060d15 100%);
 			overflow-x: hidden;
+			scroll-behavior: smooth;
+			font-size: 17px;
 		}
 
 		img {
@@ -43,49 +51,54 @@
 		}
 
 		.container {
-			width: min(92%, var(--max));
+			width: min(94%, var(--max));
 			margin: 0 auto;
 		}
 
 		header {
-			padding: 2.5rem 0 1rem;
+			padding: 2.6rem 0 1.4rem;
 		}
 
 		.hero {
 			display: grid;
-			grid-template-columns: 260px 1fr;
-			gap: 2rem;
-			background: var(--surface);
-			border-radius: var(--radius);
-			box-shadow: var(--shadow);
+			grid-template-columns: minmax(220px, 280px) 1fr;
+			gap: 1.9rem;
+			background: linear-gradient(165deg, rgba(20, 33, 47, 0.96) 0%, rgba(14, 24, 36, 0.94) 100%);
+			border: 1px solid var(--border);
+			border-radius: var(--radius-lg);
+			box-shadow: var(--shadow-lg);
 			overflow: hidden;
-			transform: translateY(14px);
-			opacity: 0;
-			animation: liftIn 700ms ease-out forwards;
+			position: relative;
+		}
+
+		.hero::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+			background: linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(184, 137, 61, 0.12) 100%);
 		}
 
 		.photo-wrap {
-			min-height: 320px;
-			background: linear-gradient(160deg, #0d7a73 0%, #0b5e59 100%);
+			padding: 1.2rem;
+			background: linear-gradient(170deg, #14375c 0%, #0f2741 100%);
 			display: flex;
+			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			padding: 1.25rem;
 		}
 
 		.photo {
 			width: 100%;
-			height: auto;
-			aspect-ratio: 4 / 5;
-			max-height: 360px;
+			aspect-ratio: 3 / 4;
 			object-fit: cover;
-			border-radius: 14px;
-			border: 4px solid rgba(255, 255, 255, 0.75);
-			box-shadow: 0 14px 30px rgba(0, 0, 0, 0.26);
+			border-radius: var(--radius-md);
+			border: 3px solid rgba(255, 255, 255, 0.8);
+			box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
 		}
 
 		.hero-content {
-			padding: 2.25rem 2rem 2rem 0;
+			padding: 2.1rem 1.9rem 2.1rem 0;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -101,68 +114,96 @@
 
 		h1 {
 			font-family: "Source Serif 4", Georgia, serif;
-			font-size: clamp(2rem, 4vw, 3.2rem);
+			font-size: clamp(2.2rem, 4.8vw, 3.5rem);
 			letter-spacing: 0.02em;
+			color: #f3f8ff;
+		}
+
+		.role {
+			margin-top: 0.55rem;
+			font-weight: 600;
+			font-size: 1.02rem;
+			text-transform: uppercase;
+			letter-spacing: 0.09em;
+			color: var(--primary);
 		}
 
 		.chip {
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			background: #e7f4f2;
-			color: #0b4d49;
-			border: 1px solid rgba(11, 77, 73, 0.15);
+			background: linear-gradient(180deg, #24384f 0%, var(--primary-soft) 100%);
+			color: #d9e8f8;
+			border: 1px solid #395673;
 			border-radius: 999px;
-			padding: 0.35rem 0.78rem;
-			font-size: 0.9rem;
-			font-weight: 500;
+			padding: 0.42rem 0.85rem;
+			font-size: 0.88rem;
+			font-weight: 600;
 			line-height: 1.2;
 			max-width: 100%;
 		}
 
 		.quick-meta {
-			margin-top: 0.8rem;
+			margin-top: 1rem;
 			display: flex;
 			flex-wrap: wrap;
-			gap: 0.55rem;
+			gap: 0.65rem;
 		}
 
 		.quick-meta .chip {
 			white-space: nowrap;
 		}
 
+
 		main {
-			padding: 1.5rem 0 3rem;
+			padding: 0.9rem 0 3.6rem;
 		}
 
 		.grid {
 			display: grid;
-			grid-template-columns: 1.2fr 1fr;
-			gap: 1.15rem;
+			grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
+			gap: 1.35rem;
+			align-items: start;
+		}
+
+		.right-column {
+			display: grid;
+			gap: 1.35rem;
 		}
 
 		section {
 			background: var(--surface);
-			border-radius: 16px;
-			box-shadow: 0 12px 30px rgba(20, 34, 38, 0.08);
-			padding: 1.3rem 1.25rem;
-			border: 1px solid #edf1ee;
-			transform: translateY(12px);
-			opacity: 0;
-			animation: liftIn 750ms ease-out forwards;
+			border: 1px solid var(--border);
+			border-radius: var(--radius-lg);
+			box-shadow: var(--shadow-sm);
+			padding: 1.45rem 1.35rem;
+			position: relative;
+			overflow: hidden;
+			transition: transform 180ms ease, box-shadow 180ms ease;
 		}
 
-		section:nth-child(2) { animation-delay: 90ms; }
-		section:nth-child(3) { animation-delay: 150ms; }
-		section:nth-child(4) { animation-delay: 210ms; }
+		section::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 3px;
+			background: linear-gradient(90deg, var(--accent) 0%, rgba(184, 137, 61, 0.18) 100%);
+		}
+
+		section:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 14px 26px rgba(16, 34, 52, 0.14);
+		}
 
 		h2 {
-			font-size: 1.05rem;
+			font-size: 1.08rem;
 			font-weight: 700;
 			text-transform: uppercase;
-			letter-spacing: 0.09em;
-			color: #0d524e;
-			margin-bottom: 1rem;
+			letter-spacing: 0.11em;
+			color: #b8d5f3;
+			margin-bottom: 1.15rem;
 			display: flex;
 			align-items: center;
 			gap: 0.5rem;
@@ -170,36 +211,46 @@
 
 		h2::before {
 			content: "";
-			width: 0.7rem;
-			height: 0.7rem;
-			border-radius: 50%;
-			background: linear-gradient(145deg, var(--accent), #f49861);
-			box-shadow: 0 0 0 5px rgba(217, 104, 31, 0.16);
+			width: 0.66rem;
+			height: 0.66rem;
+			border-radius: 999px;
+			background: var(--accent);
+			box-shadow: 0 0 0 4px rgba(184, 137, 61, 0.2);
 		}
 
 		.timeline,
 		.list {
 			display: grid;
-			gap: 0.9rem;
+			gap: 1.15rem;
+		}
+
+		.timeline .item,
+		.list .item {
+			background: linear-gradient(180deg, #142233 0%, #101b28 100%);
+			border: 1px solid #2b425a;
+			border-radius: 14px;
+			padding: 0.95rem 0.95rem 1rem;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 		}
 
 		.item h3 {
-			font-size: 1rem;
+			font-size: 1.08rem;
 			overflow-wrap: anywhere;
+			color: #ecf3fb;
 		}
 
 		.meta {
-			font-size: 0.92rem;
-			color: #3f565f;
-			margin: 0.12rem 0 0.35rem;
-			font-weight: 500;
+			margin: 0.24rem 0 0.42rem;
+			font-size: 0.96rem;
+			font-weight: 600;
+			color: #8fb1d3;
 		}
 
 		.item p,
 		.item li {
 			margin: 0;
+			font-size: 1rem;
 			color: var(--muted);
-			font-size: 0.95rem;
 		}
 
 		ul {
@@ -210,7 +261,7 @@
 
 		.skills {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 			gap: 0.6rem;
 		}
 
@@ -218,49 +269,43 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			border-radius: 12px;
 			text-align: center;
-			min-height: 64px;
-			padding: 0.5rem 0.75rem;
+			min-height: 78px;
+			padding: 0.7rem 0.85rem;
 			font-weight: 700;
-			background: #f2f6f5;
+			border-radius: var(--radius-md);
+			border-color: #30465f;
+			background: linear-gradient(180deg, #1b2c3f 0%, #142233 100%);
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 		}
 
 		a {
-			color: #0a615c;
-			text-decoration-thickness: 0.09em;
+			color: var(--primary);
+			text-decoration-thickness: 0.08em;
 			text-underline-offset: 0.16em;
 		}
 
 		a:focus-visible,
 		button:focus-visible {
-			outline: 3px solid var(--ring);
+			outline: 3px solid rgba(15, 76, 129, 0.24);
 			outline-offset: 2px;
 		}
 
-		@keyframes liftIn {
-			to {
-				transform: translateY(0);
-				opacity: 1;
-			}
-		}
-
 		@media (max-width: 980px) {
+			header {
+				padding-top: 1.6rem;
+			}
+
 			.hero {
 				grid-template-columns: 1fr;
-				gap: 0;
 			}
 
 			.hero-content {
-				padding: 1.4rem 1.25rem 1.5rem;
-			}
-
-			.photo-wrap {
-				min-height: 0;
+				padding: 1.45rem 1.25rem 1.55rem;
 			}
 
 			.photo {
-				max-height: min(70vh, 460px);
+				max-height: min(74vh, 560px);
 			}
 
 			.grid {
@@ -270,7 +315,7 @@
 
 		@media (max-width: 760px) {
 			h1 {
-				font-size: clamp(1.8rem, 8vw, 2.5rem);
+				font-size: clamp(2rem, 9vw, 2.7rem);
 			}
 
 			.quick-meta .chip {
@@ -280,16 +325,21 @@
 		}
 
 		@media (max-width: 560px) {
-			header {
-				padding-top: 1.2rem;
+			html,
+			body {
+				font-size: 16px;
 			}
 
 			.container {
-				width: 94%;
+				width: 95%;
+			}
+
+			.photo-wrap {
+				padding: 0.8rem;
 			}
 
 			.hero-content {
-				padding: 1.2rem 1rem 1.25rem;
+				padding: 1.2rem 1rem 1.35rem;
 			}
 
 			.quick-meta {
@@ -298,15 +348,18 @@
 
 			.quick-meta .chip {
 				width: 100%;
-				justify-content: center;
 			}
 
 			section {
-				padding: 1rem;
+				padding: 1.1rem 1rem;
 			}
 
 			.chip {
-				font-size: 0.85rem;
+				font-size: 0.9rem;
+			}
+
+			.skills {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 		}
 	</style>
@@ -334,58 +387,70 @@
 
 	<main class="container">
 		<div class="grid">
-			<section aria-labelledby="education-title">
+			<section id="education" aria-labelledby="education-title">
 				<h2 id="education-title">Education</h2>
 				<div class="timeline">
 					<article class="item">
-                        <h3>St. Ignatius School of Davao</h3>
-                        <p class="meta">Grade School • 2008-2017</p>
-                        <h3>Ateneo de Davao University Junior High School</h3>
-                        <p class="meta">Junior High School • 2017-2021</p>
+						<h3>St. Ignatius School of Davao</h3>
+						<p class="meta">Grade School</p>
+                        <p class="meta">2008-2017</p>
+					</article>
+					<article class="item">
+						<h3>Ateneo de Davao University Junior High School</h3>
+						<p class="meta">Junior High School</p>
+                        <p class="meta">2017-2021</p>
+					</article>
+					<article class="item">
 						<h3>Ateneo de Davao University Senior High School</h3>
-                        <p class="meta">Senior High School • 2021-2022</p>
+						<p class="meta">Senior High School</p>
+                        <p class="meta">2021-2022</p>
+					</article>
+					<article class="item">
 						<h3>Ateneo de Davao University</h3>
-						<p class="meta">Bachelor of Science in Information Systems • 2022-current</p>
+						<p class="meta">Bachelor of Science in Information Systems</p>
+                        <p class="meta">2022-current</p>
 					</article>
 				</div>
 			</section>
-			<section aria-labelledby="skills-title">
-				<h2 id="skills-title">Skills</h2>
-				<div class="skills">
-					<span class="chip">Flutter App Development</span>
-					<span class="chip">PHP Web Development</span>
-					<span class="chip">Laravel Framework</span>
-					<span class="chip">HTML & CSS</span>
-					<span class="chip">Database Management</span>
-					<span class="chip">AI Prompt Engineering</span>
-				</div>
-			</section>
+			<div class="right-column">
+				<section id="skills" aria-labelledby="skills-title">
+					<h2 id="skills-title">Skills</h2>
+					<div class="skills">
+						<span class="chip">Flutter App Development</span>
+						<span class="chip">PHP Web Development</span>
+						<span class="chip">Laravel Framework</span>
+						<span class="chip">HTML & CSS</span>
+						<span class="chip">Database Management</span>
+						<span class="chip">AI Prompt Engineering</span>
+					</div>
+				</section>
 
-			<section aria-labelledby="projects-title">
-				<h2 id="projects-title">Projects</h2>
-				<div class="list">
-					<article class="item">
-						<h3>Vales Beach Resort Complex Booking System (2025)</h3>
-						<ul>
-							<li>Implemented the website for Vales Beach Resort.</li>
-						</ul>
-					</article>
-					<article class="item">
-						<h3>Ateneo de Davao University Alumni Web Portal (in Progress)</h3>
-						<p class="meta">Developer</p>
-						<ul>
-							<li>A website where Alumni can connect and share their experiences.</li>
-						</ul>
-					</article>
-					<article class="item">
-						<h3>PocketPay Digital Wallet (in Progress)</h3>
-						<p class="meta">Founder</p>
-						<ul>
-							<li>A platform where people can pay for their fares with a tap on their smartphones.</li>
-						</ul>
-					</article>
-				</div>
-			</section>
+				<section aria-labelledby="projects-title">
+					<h2 id="projects-title">Projects</h2>
+					<div class="list">
+						<article class="item">
+							<h3>Vales Beach Resort Complex Booking System (2025)</h3>
+							<ul>
+								<li>Implemented the website for Vales Beach Resort.</li>
+							</ul>
+						</article>
+						<article class="item">
+							<h3>Ateneo de Davao University Alumni Web Portal (in Progress)</h3>
+							<p class="meta">Developer</p>
+							<ul>
+								<li>A website where Alumni can connect and share their experiences.</li>
+							</ul>
+						</article>
+						<article class="item">
+							<h3>PocketPay Digital Wallet (in Progress)</h3>
+							<p class="meta">Founder</p>
+							<ul>
+								<li>A platform where people can pay for their fares with a tap on their smartphones.</li>
+							</ul>
+						</article>
+					</div>
+				</section>
+			</div>
 
 		</div>
 	</main>
