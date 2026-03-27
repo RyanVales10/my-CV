@@ -1,458 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Justin Ryan Vales | CV Portfolio</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
 	<style>
 		:root {
-			--bg: #08111b;
-			--surface: #101b28;
-			--ink: #e7eef6;
-			--muted: #a8b6c6;
-			--primary: #9fc5ef;
-			--primary-soft: #1b2d41;
-			--accent: #b8893d;
-			--accent-soft: #362a1a;
-			--border: #223447;
-			--shadow-sm: 0 12px 24px rgba(0, 0, 0, 0.33);
-			--shadow-lg: 0 24px 54px rgba(0, 0, 0, 0.44);
-			--radius-lg: 18px;
-			--radius-md: 12px;
-			--max: 980px;
+			--cv-bg: #08111b;
+			--cv-bg-soft: #102033;
+			--cv-accent: #c39a52;
 		}
 
-		* {
-			box-sizing: border-box;
-		}
-
-		html,
 		body {
-			margin: 0;
-			padding: 0;
 			font-family: "Space Grotesk", "Segoe UI", sans-serif;
-			line-height: 1.55;
-			color: var(--ink);
 			background:
-				radial-gradient(circle at 10% -10%, rgba(184, 137, 61, 0.2) 0%, rgba(8, 17, 27, 0) 35%),
-				radial-gradient(circle at 100% 0, rgba(39, 81, 123, 0.32) 0%, rgba(8, 17, 27, 0) 34%),
-				linear-gradient(155deg, #0d1722 0%, var(--bg) 46%, #060d15 100%);
-			overflow-x: hidden;
-			scroll-behavior: smooth;
-			font-size: 17px;
+				radial-gradient(circle at 8% -10%, rgba(195, 154, 82, 0.25) 0%, rgba(8, 17, 27, 0) 34%),
+				radial-gradient(circle at 100% 0, rgba(59, 113, 171, 0.34) 0%, rgba(8, 17, 27, 0) 34%),
+				linear-gradient(155deg, #0d1825 0%, var(--cv-bg) 46%, #060c14 100%);
 		}
 
-		img {
-			display: block;
-			max-width: 100%;
+		.display-name {
+			font-family: "Source Serif 4", Georgia, serif;
+			letter-spacing: 0.01em;
 		}
 
-		.container {
-			width: min(94%, var(--max));
-			margin: 0 auto;
+		.hero-card,
+		.section-card,
+		.info-card {
+			border-color: #24374d !important;
+			background: linear-gradient(170deg, rgba(18, 33, 48, 0.96), rgba(13, 24, 36, 0.98));
 		}
 
-		header {
-			padding: 2.6rem 0 1.4rem;
+		.section-title {
+			font-size: 0.9rem;
+			letter-spacing: 0.14em;
+			text-transform: uppercase;
+			font-weight: 700;
+			color: #b9d9f8;
 		}
 
-		.hero {
-			display: grid;
-			grid-template-columns: minmax(220px, 280px) 1fr;
-			gap: 1.9rem;
-			background: linear-gradient(165deg, rgba(20, 33, 47, 0.96) 0%, rgba(14, 24, 36, 0.94) 100%);
-			border: 1px solid var(--border);
-			border-radius: var(--radius-lg);
-			box-shadow: var(--shadow-lg);
-			overflow: hidden;
-			position: relative;
+		.section-dot {
+			width: 0.7rem;
+			height: 0.7rem;
+			border-radius: 999px;
+			background: var(--cv-accent);
+			box-shadow: 0 0 0 4px rgba(195, 154, 82, 0.2);
 		}
 
-		.hero::after {
-			content: "";
-			position: absolute;
-			inset: 0;
-			pointer-events: none;
-			background: linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(184, 137, 61, 0.12) 100%);
-		}
-
-		.photo-wrap {
-			padding: 1.2rem;
-			background: linear-gradient(170deg, #14375c 0%, #0f2741 100%);
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.photo {
-			width: 100%;
+		.profile-photo {
 			aspect-ratio: 3 / 4;
 			object-fit: cover;
-			border-radius: var(--radius-md);
-			border: 3px solid rgba(255, 255, 255, 0.8);
-			box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+			border: 3px solid rgba(255, 255, 255, 0.55);
 		}
 
-		.hero-content {
-			padding: 2.1rem 1.9rem 2.1rem 0;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			min-width: 0;
-		}
-
-		h1,
-		h2,
-		h3 {
-			margin: 0;
-			line-height: 1.2;
-		}
-
-		h1 {
-			font-family: "Source Serif 4", Georgia, serif;
-			font-size: clamp(2.2rem, 4.8vw, 3.5rem);
-			letter-spacing: 0.02em;
-			color: #f3f8ff;
-		}
-
-		.role {
-			margin-top: 0.55rem;
-			font-weight: 600;
-			font-size: 1.02rem;
-			text-transform: uppercase;
-			letter-spacing: 0.09em;
-			color: var(--primary);
-		}
-
-		.chip {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			background: linear-gradient(180deg, #24384f 0%, var(--primary-soft) 100%);
-			color: #d9e8f8;
-			border: 1px solid #395673;
-			border-radius: 999px;
-			padding: 0.42rem 0.85rem;
-			font-size: 0.88rem;
-			font-weight: 600;
-			line-height: 1.2;
-			max-width: 100%;
-		}
-
-		.quick-meta {
-			margin-top: 1rem;
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.65rem;
-		}
-
-		.quick-meta .chip {
-			white-space: nowrap;
-		}
-
-
-		main {
-			padding: 0.9rem 0 3.6rem;
-		}
-
-		.grid {
-			display: grid;
-			grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
-			gap: 1.35rem;
-			align-items: start;
-		}
-
-		.right-column {
-			display: grid;
-			gap: 1.35rem;
-		}
-
-		section {
-			background: var(--surface);
-			border: 1px solid var(--border);
-			border-radius: var(--radius-lg);
-			box-shadow: var(--shadow-sm);
-			padding: 1.45rem 1.35rem;
-			position: relative;
-			overflow: hidden;
-			transition: transform 180ms ease, box-shadow 180ms ease;
-		}
-
-		section::before {
-			content: "";
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 3px;
-			background: linear-gradient(90deg, var(--accent) 0%, rgba(184, 137, 61, 0.18) 100%);
-		}
-
-		section:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 14px 26px rgba(16, 34, 52, 0.14);
-		}
-
-		h2 {
-			font-size: 1.08rem;
-			font-weight: 700;
-			text-transform: uppercase;
-			letter-spacing: 0.11em;
-			color: #b8d5f3;
-			margin-bottom: 1.15rem;
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-		}
-
-		h2::before {
-			content: "";
-			width: 0.66rem;
-			height: 0.66rem;
-			border-radius: 999px;
-			background: var(--accent);
-			box-shadow: 0 0 0 4px rgba(184, 137, 61, 0.2);
-		}
-
-		.timeline,
-		.list {
-			display: grid;
-			gap: 1.15rem;
-		}
-
-		.timeline .item,
-		.list .item {
-			background: linear-gradient(180deg, #142233 0%, #101b28 100%);
-			border: 1px solid #2b425a;
-			border-radius: 14px;
-			padding: 0.95rem 0.95rem 1rem;
-			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-		}
-
-		.item h3 {
-			font-size: 1.08rem;
-			overflow-wrap: anywhere;
-			color: #ecf3fb;
-		}
-
-		.meta {
-			margin: 0.24rem 0 0.42rem;
-			font-size: 0.96rem;
-			font-weight: 600;
-			color: #8fb1d3;
-		}
-
-		.item p,
-		.item li {
-			margin: 0;
-			font-size: 1rem;
-			color: var(--muted);
-		}
-
-		ul {
-			margin: 0;
-			padding-left: 1.1rem;
-			color: var(--muted);
-		}
-
-		.skills {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-			gap: 0.6rem;
-		}
-
-		.skills .chip {
+		.skill-pill {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			text-align: center;
-			min-height: 78px;
-			padding: 0.7rem 0.85rem;
-			font-weight: 700;
-			border-radius: var(--radius-md);
-			border-color: #30465f;
-			background: linear-gradient(180deg, #1b2c3f 0%, #142233 100%);
-			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+			width: 100%;
+			max-width: 260px;
+			min-height: 72px;
+			font-weight: 600;
+			background: linear-gradient(180deg, #243a52 0%, #1b2d41 100%);
+			border-color: #3c5979 !important;
 		}
 
-		a {
-			color: var(--primary);
-			text-decoration-thickness: 0.08em;
-			text-underline-offset: 0.16em;
+		.skills-grid {
+			justify-content: center;
 		}
 
-		a:focus-visible,
-		button:focus-visible {
-			outline: 3px solid rgba(15, 76, 129, 0.24);
-			outline-offset: 2px;
-		}
-
-		@media (max-width: 980px) {
-			header {
-				padding-top: 1.6rem;
-			}
-
-			.hero {
-				grid-template-columns: 1fr;
-			}
-
-			.hero-content {
-				padding: 1.45rem 1.25rem 1.55rem;
-			}
-
-			.photo {
-				max-height: min(74vh, 560px);
-			}
-
-			.grid {
-				grid-template-columns: 1fr;
-			}
-		}
-
-		@media (max-width: 760px) {
-			h1 {
-				font-size: clamp(2rem, 9vw, 2.7rem);
-			}
-
-			.quick-meta .chip {
-				white-space: normal;
-				overflow-wrap: anywhere;
-			}
-		}
-
-		@media (max-width: 560px) {
-			html,
-			body {
-				font-size: 16px;
-			}
-
-			.container {
-				width: 95%;
-			}
-
-			.photo-wrap {
-				padding: 0.8rem;
-			}
-
-			.hero-content {
-				padding: 1.2rem 1rem 1.35rem;
-			}
-
-			.quick-meta {
-				gap: 0.45rem;
-			}
-
-			.quick-meta .chip {
-				width: 100%;
-			}
-
-			section {
-				padding: 1.1rem 1rem;
-			}
-
-			.chip {
-				font-size: 0.9rem;
-			}
-
-			.skills {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-			}
+		.skills-grid > .col {
+			display: flex;
+			justify-content: center;
 		}
 	</style>
 </head>
 <body>
-	<header class="container">
-		<article class="hero" aria-label="Profile hero section">
-			<div class="photo-wrap">
-				<img
-					class="photo"
-					src="images/Ryan.jfif"
-					alt="Portrait of Justin Ryan Vales"
-				/>
-			</div>
-			<div class="hero-content">
-				<h1>Justin Ryan Vales</h1>
-				<p class="role">Information Systems</p>
-				<div class="quick-meta" aria-label="Quick profile details">
-					<span class="chip">Davao City, Philippines</span>
-					<span class="chip">Email: jrrvales@addu.edu.ph</span>
+	<div class="container-xxl py-5 px-3 px-md-4">
+		<section class="card hero-card shadow-lg rounded-4 mb-4">
+			<div class="row g-0 align-items-stretch">
+				<div class="col-lg-4 p-4 border-end border-secondary-subtle">
+					<img src="images/Ryan.jfif" alt="Portrait of Justin Ryan Vales" class="img-fluid w-100 rounded-4 profile-photo shadow" />
 				</div>
-			</div>
-		</article>
-	</header>
-
-	<main class="container">
-		<div class="grid">
-			<section id="education" aria-labelledby="education-title">
-				<h2 id="education-title">Education</h2>
-				<div class="timeline">
-					<article class="item">
-						<h3>St. Ignatius School of Davao</h3>
-						<p class="meta">Grade School</p>
-                        <p class="meta">2008-2017</p>
-					</article>
-					<article class="item">
-						<h3>Ateneo de Davao University Junior High School</h3>
-						<p class="meta">Junior High School</p>
-                        <p class="meta">2017-2021</p>
-					</article>
-					<article class="item">
-						<h3>Ateneo de Davao University Senior High School</h3>
-						<p class="meta">Senior High School</p>
-                        <p class="meta">2021-2022</p>
-					</article>
-					<article class="item">
-						<h3>Ateneo de Davao University</h3>
-						<p class="meta">Bachelor of Science in Information Systems</p>
-                        <p class="meta">2022-current</p>
-					</article>
-				</div>
-			</section>
-			<div class="right-column">
-				<section id="skills" aria-labelledby="skills-title">
-					<h2 id="skills-title">Skills</h2>
-					<div class="skills">
-						<span class="chip">Flutter App Development</span>
-						<span class="chip">PHP Web Development</span>
-						<span class="chip">Laravel Framework</span>
-						<span class="chip">HTML & CSS</span>
-						<span class="chip">Database Management</span>
-						<span class="chip">AI Prompt Engineering</span>
+				<div class="col-lg-8 p-4 p-xl-5 d-flex flex-column justify-content-center">
+					<h1 class="display-name display-5 fw-bold text-light mb-2">Justin Ryan Vales</h1>
+					<p class="text-info-emphasis text-uppercase fw-semibold small mb-3">Information Systems</p>
+					<div class="d-flex flex-wrap gap-2">
+						<span class="badge rounded-pill text-bg-primary px-3 py-2">Davao City, Philippines</span>
+						<span class="badge rounded-pill text-bg-secondary px-3 py-2">Email: jrrvales@addu.edu.ph</span>
 					</div>
-				</section>
+				</div>
+			</div>
+		</section>
 
-				<section aria-labelledby="projects-title">
-					<h2 id="projects-title">Projects</h2>
-					<div class="list">
-						<article class="item">
-							<h3>Vales Beach Resort Complex Booking System (2025)</h3>
-							<ul>
-								<li>Implemented the website for Vales Beach Resort.</li>
-							</ul>
-						</article>
-						<article class="item">
-							<h3>Ateneo de Davao University Alumni Web Portal (in Progress)</h3>
-							<p class="meta">Developer</p>
-							<ul>
-								<li>A website where Alumni can connect and share their experiences.</li>
-							</ul>
-						</article>
-						<article class="item">
-							<h3>PocketPay Digital Wallet (in Progress)</h3>
-							<p class="meta">Founder</p>
-							<ul>
-								<li>A platform where people can pay for their fares with a tap on their smartphones.</li>
-							</ul>
-						</article>
+		<div class="row g-4 align-items-start">
+			<div class="col-xl-7">
+				<section id="education" class="card section-card rounded-4 shadow-sm h-100">
+					<div class="card-body p-4">
+						<div class="d-flex align-items-center gap-2 mb-3">
+							<span class="section-dot"></span>
+							<h2 class="section-title mb-0">Education</h2>
+						</div>
+						<div class="row row-cols-1 g-3">
+							<div class="col">
+								<article class="card info-card border rounded-4 h-100">
+									<div class="card-body">
+										<h3 class="h4 text-light mb-1">St. Ignatius School of Davao</h3>
+										<p class="text-info-emphasis fw-semibold mb-1">Grade School</p>
+										<p class="text-secondary mb-0">2008-2017</p>
+									</div>
+								</article>
+							</div>
+							<div class="col">
+								<article class="card info-card border rounded-4 h-100">
+									<div class="card-body">
+										<h3 class="h4 text-light mb-1">Ateneo de Davao University Junior High School</h3>
+										<p class="text-info-emphasis fw-semibold mb-1">Junior High School</p>
+										<p class="text-secondary mb-0">2017-2021</p>
+									</div>
+								</article>
+							</div>
+							<div class="col">
+								<article class="card info-card border rounded-4 h-100">
+									<div class="card-body">
+										<h3 class="h4 text-light mb-1">Ateneo de Davao University Senior High School</h3>
+										<p class="text-info-emphasis fw-semibold mb-1">Senior High School</p>
+										<p class="text-secondary mb-0">2021-2022</p>
+									</div>
+								</article>
+							</div>
+							<div class="col">
+								<article class="card info-card border rounded-4 h-100">
+									<div class="card-body">
+										<h3 class="h4 text-light mb-1">Ateneo de Davao University</h3>
+										<p class="text-info-emphasis fw-semibold mb-1">Bachelor of Science in Information Systems</p>
+										<p class="text-secondary mb-0">2022-current</p>
+									</div>
+								</article>
+							</div>
+						</div>
 					</div>
 				</section>
 			</div>
 
+			<div class="col-xl-5">
+				<div class="d-grid gap-4">
+					<section id="skills" class="card section-card rounded-4 shadow-sm">
+						<div class="card-body p-4">
+							<div class="d-flex align-items-center gap-2 mb-3">
+								<span class="section-dot"></span>
+								<h2 class="section-title mb-0">Skills</h2>
+							</div>
+							<div class="row row-cols-1 row-cols-sm-2 g-3 skills-grid">
+								<div class="col"><div class="badge w-100 text-wrap border rounded-4 p-3 skill-pill">Flutter App Development</div></div>
+								<div class="col"><div class="badge w-100 text-wrap border rounded-4 p-3 skill-pill">PHP Web Development</div></div>
+								<div class="col"><div class="badge w-100 text-wrap border rounded-4 p-3 skill-pill">Laravel Framework</div></div>
+								<div class="col"><div class="badge w-100 text-wrap border rounded-4 p-3 skill-pill">HTML &amp; CSS</div></div>
+								<div class="col"><div class="badge w-100 text-wrap border rounded-4 p-3 skill-pill">Database Management</div></div>
+								<div class="col"><div class="badge w-100 text-wrap border rounded-4 p-3 skill-pill">AI Prompt Engineering</div></div>
+							</div>
+						</div>
+					</section>
+
+					<section class="card section-card rounded-4 shadow-sm">
+						<div class="card-body p-4">
+							<div class="d-flex align-items-center gap-2 mb-3">
+								<span class="section-dot"></span>
+								<h2 class="section-title mb-0">Projects</h2>
+							</div>
+							<div class="row row-cols-1 g-3">
+								<div class="col">
+									<article class="card info-card border rounded-4 h-100">
+										<div class="card-body">
+											<h3 class="h5 text-light mb-2">Vales Beach Resort Complex Booking System (2025)</h3>
+											<ul class="mb-0 text-secondary-emphasis">
+												<li>Implemented the website for Vales Beach Resort.</li>
+											</ul>
+										</div>
+									</article>
+								</div>
+								<div class="col">
+									<article class="card info-card border rounded-4 h-100">
+										<div class="card-body">
+											<h3 class="h5 text-light mb-1">Ateneo de Davao University Alumni Web Portal (In Progress)</h3>
+											<p class="text-info-emphasis fw-semibold mb-2">Developer</p>
+											<ul class="mb-0 text-secondary-emphasis">
+												<li>A website where Alumni can connect and share their experiences.</li>
+											</ul>
+										</div>
+									</article>
+								</div>
+								<div class="col">
+									<article class="card info-card border rounded-4 h-100">
+										<div class="card-body">
+											<h3 class="h5 text-light mb-1">PocketPay Digital Wallet (In Progress)</h3>
+											<p class="text-info-emphasis fw-semibold mb-2">Founder</p>
+											<ul class="mb-0 text-secondary-emphasis">
+												<li>A platform where people can pay fares with a tap on their smartphones.</li>
+											</ul>
+										</div>
+									</article>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
 		</div>
-	</main>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
