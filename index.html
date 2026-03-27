@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Tim Berners-Lee | CV Portfolio</title>
+	<title>Justin Ryan Vales | CV Portfolio</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet" />
@@ -97,28 +97,6 @@
 			letter-spacing: 0.02em;
 		}
 
-		.role {
-			margin-top: 0.45rem;
-			color: var(--primary);
-			font-size: 1.06rem;
-			font-weight: 700;
-			letter-spacing: 0.06em;
-			text-transform: uppercase;
-		}
-
-		.summary {
-			margin-top: 1rem;
-			color: var(--muted);
-			max-width: 64ch;
-		}
-
-		.quick-meta {
-			margin-top: 1.2rem;
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.55rem;
-		}
-
 		.chip {
 			background: #e7f4f2;
 			color: #0b4d49;
@@ -153,8 +131,7 @@
 		section:nth-child(2) { animation-delay: 90ms; }
 		section:nth-child(3) { animation-delay: 150ms; }
 		section:nth-child(4) { animation-delay: 210ms; }
-		section:nth-child(5) { animation-delay: 260ms; }
-		section:nth-child(6) { animation-delay: 320ms; }
+		section:nth-child(4) { animation-delay: 210ms; }
 
 		h2 {
 			font-size: 1.05rem;
@@ -178,8 +155,7 @@
 		}
 
 		.timeline,
-		.list,
-		.research {
+		.list {
 			display: grid;
 			gap: 0.9rem;
 		}
@@ -215,18 +191,15 @@
 		}
 
 		.skills .chip {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			border-radius: 12px;
 			text-align: center;
-			padding: 0.5rem;
+			min-height: 64px;
+			padding: 0.5rem 0.75rem;
 			font-weight: 700;
 			background: #f2f6f5;
-		}
-
-		footer {
-			text-align: center;
-			color: #4a5f67;
-			font-size: 0.9rem;
-			padding: 0 0 2.2rem;
 		}
 
 		a {
@@ -287,10 +260,6 @@
 				padding: 1rem;
 			}
 
-			.quick-meta {
-				gap: 0.45rem;
-			}
-
 			.chip {
 				font-size: 0.85rem;
 			}
@@ -303,22 +272,16 @@
 			<div class="photo-wrap">
 				<img
 					class="photo"
-					src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Tim_Berners-Lee_CP_2.jpg/330px-Tim_Berners-Lee_CP_2.jpg"
-					alt="Portrait of Tim Berners-Lee"
+					src="images/Ryan.jfif"
+					alt="Portrait of Justin Ryan Vales"
 				/>
 			</div>
 			<div class="hero-content">
-				<h1>Tim Berners-Lee</h1>
-				<p class="role">Computer Scientist • Inventor of the World Wide Web</p>
-				<p class="summary">
-					British computer scientist best known for inventing the World Wide Web (1989),
-					creating HTTP, HTML and URL standards, and advancing a decentralized, open web
-					through the World Wide Web Consortium and the Solid project.
-				</p>
+				<h1>Justin Ryan Vales</h1>
+				<p class="role">Information Systems</p>
 				<div class="quick-meta" aria-label="Quick profile details">
-					<span class="chip">London, United Kingdom</span>
-					<span class="chip">Email: timbl@w3.org</span>
-					<span class="chip"><a href="https://www.w3.org/People/Berners-Lee/" target="_blank" rel="noopener">w3.org/People/Berners-Lee</a></span>
+					<span class="chip">Davao City, Philippines</span>
+					<span class="chip">Email: jrrvales@addu.edu.ph</span>
 				</div>
 			</div>
 		</article>
@@ -330,25 +293,26 @@
 				<h2 id="education-title">Education</h2>
 				<div class="timeline">
 					<article class="item">
-						<h3>The Queen's College, University of Oxford</h3>
-						<p class="meta">Bachelor of Arts in Physics • 1973-1976</p>
-						<p>
-							Graduated with first-class honours and built early electronics systems,
-							laying the foundation for later network and hypertext work.
-						</p>
+                        <h3>St. Ignatius School of Davao</h3>
+                        <p class="meta">Grade School • 2008-2017</p>
+                        <h3>Ateneo de Davao University Junior High School</h3>
+                        <p class="meta">Junior High School • 2017-2021</p>
+						<h3>Ateneo de Davao University Senior High School</h3>
+                        <p class="meta">Senior High School • 2021-2022</p>
+						<h3>Ateneo de Davao University</h3>
+						<p class="meta">Bachelor of Science in Information Systems • 2022-2026</p>
 					</article>
 				</div>
 			</section>
-
 			<section aria-labelledby="skills-title">
 				<h2 id="skills-title">Skills</h2>
 				<div class="skills">
-					<span class="chip">Distributed Systems</span>
-					<span class="chip">Web Architecture</span>
-					<span class="chip">Protocol Design</span>
-					<span class="chip">Data Decentralization</span>
-					<span class="chip">Public Speaking</span>
-					<span class="chip">Policy Advocacy</span>
+					<span class="chip">Flutter App Development</span>
+					<span class="chip">PHP Web Development</span>
+					<span class="chip">Laravel Framework</span>
+					<span class="chip">HTML & CSS</span>
+					<span class="chip">Database Management</span>
+					<span class="chip">AI Prompt Engineering</span>
 				</div>
 			</section>
 
@@ -356,76 +320,29 @@
 				<h2 id="projects-title">Projects</h2>
 				<div class="list">
 					<article class="item">
-						<h3>World Wide Web (1989-1991)</h3>
-						<p class="meta">CERN</p>
+						<h3>Vales Beach Resort Complex Booking System (2025)</h3>
 						<ul>
-							<li>Proposed and implemented the original web architecture for sharing linked information globally.</li>
-							<li>Created the first web browser/editor and first web server.</li>
+							<li>Implemented the website for Vales Beach Resort.</li>
 						</ul>
 					</article>
 					<article class="item">
-						<h3>World Wide Web Consortium (W3C) (1994-present)</h3>
-						<p class="meta">Founder and Director</p>
+						<h3>Ateneo de Davao University Alumni Web Portal (in Progress)</h3>
+						<p class="meta">Developer</p>
 						<ul>
-							<li>Leads global standards development for an open and interoperable web.</li>
-							<li>Guided standards such as HTML, CSS, and accessibility recommendations.</li>
+							<li>A website where Alumni can connect and share their experiences.</li>
 						</ul>
 					</article>
 					<article class="item">
-						<h3>Solid Project (2016-present)</h3>
+						<h3>PocketPay Digital Wallet (in Progress)</h3>
 						<p class="meta">Founder</p>
 						<ul>
-							<li>Developed a decentralized platform giving users control over personal data via data pods.</li>
-							<li>Encourages privacy-first applications across institutions and enterprise partners.</li>
+							<li>A platform where people can pay for their fares with a tap on their smartphones.</li>
 						</ul>
 					</article>
 				</div>
 			</section>
 
-			<section aria-labelledby="affiliations-title">
-				<h2 id="affiliations-title">Affiliation</h2>
-				<div class="list">
-					<article class="item">
-						<h3>Massachusetts Institute of Technology (MIT)</h3>
-						<p class="meta">Professor, CSAIL</p>
-					</article>
-					<article class="item">
-						<h3>University of Oxford</h3>
-						<p class="meta">Professor of Computer Science</p>
-					</article>
-					<article class="item">
-						<h3>World Wide Web Foundation</h3>
-						<p class="meta">Co-founder</p>
-					</article>
-				</div>
-			</section>
-
-			<section aria-labelledby="research-title">
-				<h2 id="research-title">Research</h2>
-				<div class="research">
-					<article class="item">
-						<h3>Linked Data and Semantic Web</h3>
-						<p>
-							Investigates machine-readable relationships between datasets to improve discovery,
-							interoperability, and open knowledge exchange.
-						</p>
-					</article>
-					<article class="item">
-						<h3>Web Decentralization and Data Ownership</h3>
-						<p>
-							Focuses on protocols and governance models that reduce centralized control and
-							increase user autonomy over identity and personal information.
-						</p>
-					</article>
-				</div>
-			</section>
 		</div>
 	</main>
-
-	<footer class="container">
-		<p>
-			Portfolio CV single-page layout. Built with semantic HTML and modern CSS for responsive performance across desktop, tablet, and mobile.
-		</p>
-	</footer>
 </body>
 </html>
